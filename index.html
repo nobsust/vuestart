@@ -3,79 +3,21 @@
 <head>
 	<title></title>
 
-	<style type="text/css">
-		
-		.color-red { color: red; }
-
-		.color-blue { color: blue; }
-
-	</style>
-
 </head>
 <body>
 
-	<div id="root">
+	<div id="root">		
 
-		<h1>
-			
-			{{ reversedMessage }}
-
-		</h1>
-
-
-		<h1>All Tasks</h1>
-		<ul>
-			<li v-for="task in tasks" v-text="task.description"></li>
-		</ul>
-
-		<h1>Incomplete Tasks</h1>
-		<ul>
-			<li v-for="task in incompleteTasks" v-text="task.description"></li>
-		</ul>
+		<task>One</task>
+		<task>Two</task>
+		<task>Three</task>
+		<task>Four</task>
 
 	</div>
 
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.4.4/dist/vue.js"></script>
 
-	<script type="text/javascript">
-		
-		var app = new Vue({
-
-			el: '#root',
-
-			data: {
-
-				message: 'Hello World!',
-
-				tasks: [
-					{ description: 'task 1', completed: true },
-					{ description: 'task 2', completed: false },
-					{ description: 'task 3', completed: true },
-					{ description: 'task 4', completed: false },
-					{ description: 'task 5', completed: false }
-				]
-
-			},
-
-			computed: {
-
-				reversedMessage() {
-
-					return this.message.split('').reverse().join('');
-
-				},
-
-				incompleteTasks() {
-
-					return this.tasks.filter(task => !task.completed);
-
-				}
-
-			}
-
-		})
-
-	</script>
+	<script type="text/javascript" src="main.js"></script>
 
 </body>
 </html>
