@@ -7,15 +7,8 @@
 
 	<div id="root">
 
-		<ul>
-
-			<li v-for="name in names" v-text="name"></li>
-
-		</ul>
-
-		<input type="text" v-model="newName">
-		<button v-on:click="addName">Add Name</button>
-		<!-- <button @click="addName">Add Name</button> -->
+		<!-- <button v-bind:title="title">Hover over me</button> -->
+		<button :title="title">Hover over me</button>
 
 	</div>
 
@@ -29,24 +22,9 @@
 
 			data: {
 
-				newName: '',
-
-				names: ['Joe', 'Mary', 'Jane', 'Jack']
+				title: 'Set throug JS'
 
 			},
-
-			methods: {
-
-				addName() {
-
-					this.names.push(this.newName);
-					this.newName = '';
-
-				}
-			},
-
-			mounted() {
-			}
 
 		})
 
@@ -57,10 +35,8 @@
 
 <!-- 
 
-	Event Listeners
-	v-on:click | v-on = directive, click= argument
-	methods object
-	es 2015 syntax for methods
-	v-on:click = @click | install sublime vue extension
+	Attribute Binding
+	v-bind:title
+	attribute binding short hand = :<attribute name>
 
 -->
