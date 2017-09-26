@@ -16,9 +16,22 @@
 
 	<div id="root">
 
-		<h1 :class="className">Attribute binding - Class</h1>
+		<h1>
+			
+			{{ reversedMessage }}
 
-		<button :class="{ 'color-blue' : toggled }" @click="toggleClass">Toggle Me</button>
+		</h1>
+
+
+		<h1>All Tasks</h1>
+		<ul>
+			<li v-for="task in tasks" v-text="task.description"></li>
+		</ul>
+
+		<h1>Incomplete Tasks</h1>
+		<ul>
+			<li v-for="task in incompleteTasks" v-text="task.description"></li>
+		</ul>
 
 	</div>
 
@@ -32,17 +45,29 @@
 
 			data: {
 
-				className: 'color-red',
+				message: 'Hello World!',
 
-				toggled: false
+				tasks: [
+					{ description: 'task 1', completed: true },
+					{ description: 'task 2', completed: false },
+					{ description: 'task 3', completed: true },
+					{ description: 'task 4', completed: false },
+					{ description: 'task 5', completed: false }
+				]
 
 			},
 
-			methods: {
+			computed: {
 
-				toggleClass() {
+				reversedMessage() {
 
-					this.toggled = true;
+					return this.message.split('').reverse().join('');
+
+				},
+
+				incompleteTasks() {
+
+					return this.tasks.filter(task => !task.completed);
 
 				}
 
@@ -57,8 +82,7 @@
 
 <!-- 
 
-	Attribute Binding
-	v-bind:title
-	attribute binding short hand = :<attribute name>
+	Computed Properties
+	computed properties = cached + reactive
 
 -->
