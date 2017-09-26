@@ -2,13 +2,23 @@
 <html>
 <head>
 	<title></title>
+
+	<style type="text/css">
+		
+		.color-red { color: red; }
+
+		.color-blue { color: blue; }
+
+	</style>
+
 </head>
 <body>
 
 	<div id="root">
 
-		<!-- <button v-bind:title="title">Hover over me</button> -->
-		<button :title="title">Hover over me</button>
+		<h1 :class="className">Attribute binding - Class</h1>
+
+		<button :class="{ 'color-blue' : toggled }" @click="toggleClass">Toggle Me</button>
 
 	</div>
 
@@ -22,9 +32,21 @@
 
 			data: {
 
-				title: 'Set throug JS'
+				className: 'color-red',
+
+				toggled: false
 
 			},
+
+			methods: {
+
+				toggleClass() {
+
+					this.toggled = true;
+
+				}
+
+			}
 
 		})
 
