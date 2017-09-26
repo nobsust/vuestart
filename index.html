@@ -8,14 +8,14 @@
 	<div id="root">
 
 		<ul>
-			
-			<li v-for="name in names">{{ name }}</li>
-			<!-- <li v-for="name in names" v-text="name"></li> -->
+
+			<li v-for="name in names" v-text="name"></li>
 
 		</ul>
 
-		<input type="text" id="input">
-		<button id="button">Add Name</button>
+		<input type="text" v-model="newName">
+		<button v-on:click="addName">Add Name</button>
+		<!-- <button @click="addName">Add Name</button> -->
 
 	</div>
 
@@ -29,27 +29,26 @@
 
 			data: {
 
+				newName: '',
+
 				names: ['Joe', 'Mary', 'Jane', 'Jack']
 
 			},
 
+			methods: {
+
+				addName() {
+
+					this.names.push(this.newName);
+					this.newName = '';
+
+				}
+			},
+
 			mounted() {
-
-				alert('ready');
-
 			}
 
 		})
-
-		document.querySelector('#button').addEventListener('click', () => {
-
-			let name = document.querySelector('input');
-
-			app.names.push(name.value);
-
-			name.value = '';
-
-		});
 
 	</script>
 
@@ -58,10 +57,10 @@
 
 <!-- 
 
-	Complex Data Structures
-	v-for directive for Arrays
-	v-text sets the text content
-	app.names.push('Susan')
-	mounted -> once the instance (Vue) has been mounted
+	Event Listeners
+	v-on:click | v-on = directive, click= argument
+	methods object
+	es 2015 syntax for methods
+	v-on:click = @click | install sublime vue extension
 
 -->
