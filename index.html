@@ -6,10 +6,16 @@
 <body>
 
 	<div id="root">
-		
-		<input type="text" id="input" v-model="message">
 
-		<p>Value of the Input is: {{ message }}</p>
+		<ul>
+			
+			<li v-for="name in names">{{ name }}</li>
+			<!-- <li v-for="name in names" v-text="name"></li> -->
+
+		</ul>
+
+		<input type="text" id="input">
+		<button id="button">Add Name</button>
 
 	</div>
 
@@ -17,15 +23,33 @@
 
 	<script type="text/javascript">
 		
-		new Vue({
+		var app = new Vue({
 
 			el: '#root',
 
 			data: {
-				message: 'Hello World'
+
+				names: ['Joe', 'Mary', 'Jane', 'Jack']
+
+			},
+
+			mounted() {
+
+				alert('ready');
+
 			}
 
 		})
+
+		document.querySelector('#button').addEventListener('click', () => {
+
+			let name = document.querySelector('input');
+
+			app.names.push(name.value);
+
+			name.value = '';
+
+		});
 
 	</script>
 
@@ -34,14 +58,10 @@
 
 <!-- 
 
-* View can update the data model, and if data model updated it will be reflected in the view
-* Vue directly proxy all the data properties $vm, ex. $vm0.message
-* Two-way reactivity - data level changes will be reflected in the view, if we change the view, it will also update the data objects
-* SINGLE SOURCE OF TRUTH
-
-* With jquery, we have to constantly reaching in to the DOM, find the element, fetch it's value and change it
-* again and again
-
-*** With Vue (and similar framworks) it allows the data to be the single source of truth
+	Complex Data Structures
+	v-for directive for Arrays
+	v-text sets the text content
+	app.names.push('Susan')
+	mounted -> once the instance (Vue) has been mounted
 
 -->
