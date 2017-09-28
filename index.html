@@ -10,15 +10,20 @@
 </head>
 <body>
 
-	<div id="root" class="container">	
+	<div id="root" class="container">
 
-		<modal v-if="showModal" @close="showModal = false">
+		<tabs>
 			
-			<p>Lorem ipsum dolar sit amet.</p>
-
-		</modal>
-
-		<button @click="showModal = true">Show Modal</button>
+			<tab name="About" :selected="true">
+				<h1>Here is the content for the About</h1>
+			</tab>
+			<tab name="About Us">
+				<h1>Here is the content for the About Us</h1>
+			</tab>
+			<tab name="About Our Culture">
+				<h1>Here is the content for the About Our Culture</h1>
+			</tab>
+		</tabs>
 
 	</div>
 
@@ -31,10 +36,8 @@
 
 <!-- 
 
-	Modal Components
-	v-if or v-show
-	notify root scope from component
-	custom event ex. @close
-
+	Tab Components
+	component can have single root element
+	props are immutable
 
 -->
