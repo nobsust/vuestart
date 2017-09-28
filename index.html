@@ -3,12 +3,18 @@
 <head>
 	<title></title>
 
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.css">
+
+	<style type="text/css">body { padding-top: 40px; }</style>
+
 </head>
 <body>
 
-	<div id="root">		
+	<div id="root" class="container">	
 
-		<task-list></task-list>
+		<message title="Hello World" body="Lorem ipsum dolar sit amet."></message>
+
+		<message title="Hello Universe" body="Blah Blah Blah."></message>
 
 	</div>
 
@@ -21,7 +27,7 @@
 
 <!-- 
 
-	Nested Components
-	component template needs a root element (single)
+	Message Components
+	hide component via data modal, not by fetching and manipulating DOM
 
 -->
