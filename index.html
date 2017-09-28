@@ -12,9 +12,13 @@
 
 	<div id="root" class="container">	
 
-		<message title="Hello World" body="Lorem ipsum dolar sit amet."></message>
+		<modal v-if="showModal" @close="showModal = false">
+			
+			<p>Lorem ipsum dolar sit amet.</p>
 
-		<message title="Hello Universe" body="Blah Blah Blah."></message>
+		</modal>
+
+		<button @click="showModal = true">Show Modal</button>
 
 	</div>
 
@@ -27,7 +31,10 @@
 
 <!-- 
 
-	Message Components
-	hide component via data modal, not by fetching and manipulating DOM
+	Modal Components
+	v-if or v-show
+	notify root scope from component
+	custom event ex. @close
+
 
 -->
