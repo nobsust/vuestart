@@ -12,9 +12,7 @@
 
 	<div id="root" class="container">
 
-		<coupon @applied="onCouponApplied"></coupon>
-
-		<h1 v-if="couponApplied">You applied the coupon!</h1>
+		<coupon></coupon>
 
 	</div>
 
@@ -27,10 +25,9 @@
 
 <!-- 
 
-	Custom Events
-	coupon component declaration should come before the root declaration
-	this.$emit can also pass an object
-	parent component will listen to the applied, if the child remits (after catching applied by itself) parent will catch the event
-	(emits from child to parent)
+	Event Dispatcher
+	(sibling communication without bubbling up to the root then root broadcasting own event to the child)
+	this.$emit to emit and this.$on to listen
+	bind some object i.e Event to window, and use that object to emit and listen (as a reference object)
 
 -->
