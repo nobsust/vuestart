@@ -12,18 +12,9 @@
 
 	<div id="root" class="container">
 
-		<tabs>
-			
-			<tab name="About" :selected="true">
-				<h1>Here is the content for the About</h1>
-			</tab>
-			<tab name="About Us">
-				<h1>Here is the content for the About Us</h1>
-			</tab>
-			<tab name="About Our Culture">
-				<h1>Here is the content for the About Our Culture</h1>
-			</tab>
-		</tabs>
+		<coupon @applied="onCouponApplied"></coupon>
+
+		<h1 v-if="couponApplied">You applied the coupon!</h1>
 
 	</div>
 
@@ -36,8 +27,10 @@
 
 <!-- 
 
-	Tab Components
-	component can have single root element
-	props are immutable
+	Custom Events
+	coupon component declaration should come before the root declaration
+	this.$emit can also pass an object
+	parent component will listen to the applied, if the child remits (after catching applied by itself) parent will catch the event
+	(emits from child to parent)
 
 -->
